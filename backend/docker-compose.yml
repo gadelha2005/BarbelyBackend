@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: barberly-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: gadelha2005
+      MYSQL_DATABASE: barberly_db
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: gadelha2005
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pgadelha2005"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql-data:
