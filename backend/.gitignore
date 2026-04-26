@@ -46,3 +46,5 @@ application-secret.yml
 
 ### Docker Overrides (credenciais locais) ###
 docker-compose.override.yml
+
+claude.md
